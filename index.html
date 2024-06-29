@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello World!</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style type="text/css" media="all">
+      body {
+  height: 90vh;
+  width: 90vw;
+  background: black;
+  gap: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.container{
+   width: 250px;
+  height: 250px;
+  background: pink;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-column-gap: 30px;
+  grid-template-columns: auto auto auto;
+}
+.items{
+  height: 50px;
+  width: 50px;
+  background:  #817C79;
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid black 3px;
+}
+.spiner{
+  height: 60px;
+  width: 60px;
+  background: #D5CDC7;
+  border-radius: 0% 50% 50% 50%;
+}
+.spiner::before{
+  content: " ";
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background: black;
+}
+.btns{
+  height: 50px;
+  width: 100px;
+  gap: 10px;
+ background: none;
+}
+
+    </style>
+  </head>
+  <body>
+       <div class="container">
+      <div class="items one">
+        <h2>1</h2>
+      </div>
+      <div class="items two">
+        <h2>2</h2>
+        
+      </div>
+      <div class="items three">
+        <h2>3</h2>
+        
+      </div>
+      <div class="items four">
+        <h2>4</h2>
+        
+      </div>
+      <div class="items spiner">
+        
+      </div>
+      <div class="items six">
+        <h2>5</h2>
+        
+      </div>
+      <div class="items seven">
+        <h2>6</h2>
+        
+      </div>
+      <div class="items eight">
+        <h2>7</h2>
+      </div>
+      <div class="items nine">
+        
+        <h2>8</h2>
+      </div>
+   </div>
+   <div class="items btns">
+   <input type="button" name="click" id="click" value="click" />
+   <input type="button" name="reset" id="reset" value="reset" />
+   </div>
+  
+  <script>
+    let spiner = document.querySelector(".spiner");
+let btn = document.querySelector("#click");
+let btn2 = document.querySelector("#reset");
+// let n = "deg";
+
+btn.addEventListener("click", ()=>{
+const no = getRandomIntInclusive(1, 9);
+let dg = (no-1)*45*5;
+  if(no==1){
+spiner.style.transition = "2s";
+spiner.style.transform = "rotateZ(360deg)";
+  }
+  else{
+spiner.style.transition = "2s";
+spiner.style.transform = "rotateZ(" + dg + "deg)";
+// spiner.style.background = "red";
+  }
+})
+btn2.addEventListener("click", ()=>{
+spiner.style.transition = "2s";
+spiner.style.transform = "initial";
+})
+// no = getRandomIntInclusive(1,9)
+
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min); // Round `min` up to the nearest integer
+  max = Math.floor(max); // Round `max` down to the nearest integer
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
+
+  </script>
+  </body>
+</html>
